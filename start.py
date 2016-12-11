@@ -21,13 +21,10 @@ i = 1
 for server in servers:
     name = 'pxc' + str(i)
     ip = server
-    print 'Name: ' + name + ' IP: ' + ip
     mystr = template;
     mystr = mystr.replace('name', name)
     mystr = mystr.replace('ip', ip)
-    print "mystr: " + mystr
     addservers = addservers + '    ' + mystr + "\n"
-    print 'addservers: ' + addservers
     i = i + 1
     
 with open(configfile, 'r') as myfile:
