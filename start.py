@@ -7,11 +7,12 @@ from subprocess import call
 configfile = '/etc/haproxy/haproxy.cfg'
 template = 'server name ip:3306 check port 9200 inter 12000 rise 3 fall 3'
 
-serverlist = os.environ['SERVERS']
-
-if not serverlist:
+try:
+    serverlist = os.environ['SERVERS']
+except KeyError:
     print "No servers defined. Exit!"
     sys.exit(100)
+
 
 servers = serverlist.split(',')
 addservers = ''
