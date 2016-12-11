@@ -10,6 +10,9 @@ COPY conf/haproxy.cfg /etc/haproxy/haproxy.cfg
 COPY start.py /start.py
 RUN chmod a+rx /start.py
 
+RUN apt-get clean
+RUN RUN rm -rf /var/lib/apt/lists/*
+
 EXPOSE 3306
 EXPOSE 8181
 
